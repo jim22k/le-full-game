@@ -1,0 +1,4 @@
+[[fetch]]
+files = ["./Maps.py", "./areas/area1.py", "./areas/area2.py", "./areas/attic.py", "./areas/castle.py",
+         "./areas/cave.py", "./areas/field.py", "./areas/house.py", "./areas/item.py", "./areas/orchard.py",
+         "./areas/space.py", "./areas/swamp.py", "./areas/volcano.py"]

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Le-Full-Game</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="https://pyscript.net/releases/2022.12.1/pyscript.css" />
+    <script defer src="https://pyscript.net/releases/2022.12.1/pyscript.js"></script>
+
+    <style>
+        body {
+            background-color: rgb(31, 37, 35);
+            color: rgb(242, 238, 230);
+        }
+        #text div {
+            border-bottom: 1px solid gray;
+            padding: 5px 0;
+        }
+        .arrow-button {
+            width: 150px;
+            margin-left: 100px;
+        }
+        .arrow-button .center {
+            margin-left: auto;
+            margin-right: auto;
+            display:block
+        }
+        .arrow-button button {
+            width: 70px;
+        }
+    </style>
+</head>
+<body>
+    <div style="margin-bottom: 40px">
+        <button py-click="inventory()" id="inventory-button">Inventory</button>
+        <button py-click="credits()" id="credits">Credits</button>
+        <button py-click="restart()" id="restart-button" disabled style="margin-left: 50px">Restart</button>
+    </div>
+    
+    <div class="arrow-button">
+        <button class="center" py-click="up()" id="up-button">North</button>
+    </div>
+    <div class="arrow-button">
+        <button py-click="left()" id="left-button">West</button>
+        <button py-click="right()" id="right-button">East</button>
+    </div>
+    <div class="arrow-button">
+        <button class="center" py-click="down()" id="down-button">South</button>
+    </div>   
+
+    <pre><div id="map"></div></pre>
+    <pre><div id="text"></div></pre>
+
+    <py-config src="./pyscript.toml"></py-config>
+    <py-script src="./main.py"></py-script>
+
+    <script>
+        document.addEventListener("keydown", function onEvent(event) {
+            if (event.key === "ArrowLeft" || event.key === "w") {
+                pyscript.runtime.run("left()");
+                event.repeat = false;
+                event.preventDefault();
+            } else if (event.key === "ArrowRight" || event.key === "e") {
+                pyscript.runtime.run("right()");
+                event.repeat = false;
+                event.preventDefault();
+            } else if (event.key === "ArrowUp" || event.key === "n") {
+                pyscript.runtime.run("up()");
+                event.repeat = false;
+                event.preventDefault();
+            } else if (event.key === "ArrowDown" || event.key === "s") {
+                pyscript.runtime.run("down()");
+                event.repeat = false;
+                event.preventDefault();
+            } else if (event.key === "i") {
+                pyscript.runtime.run("inventory()");
+                event.repeat = false;
+                event.preventDefault();
+            } else if (event.key === "c") {
+                pyscript.runtime.run("credits()");
+                event.repeat = false;
+                event.preventDefault();
+            }
+        }, false);
+    </script>
+</body>
+</html>
