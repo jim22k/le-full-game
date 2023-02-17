@@ -1,4 +1,4 @@
-from .space import regions, Space, Transition, Fence, Cell, Swamp, BigTree
+from .space import regions, Space, Transition, Fence, Cell, Swamp
 
 
 class BigTree(Space):
@@ -72,30 +72,6 @@ class Fogged(Space):
         self.print('''The mist closes in on you
         
         You open your eyes, you are back on the path that leads into the mist''')
-
-
-# class Mistyy(Space):
-#     def __init__(self,nad,ncords,name,text,bean):
-#         super().__init__()
-#         self.nad = nad
-#         self.ncords = ncords
-#         self.name = name
-#         self.text = text
-#         self.bean = bean
-
-#     def walked_in(self, gs):
-#         if gs.mist == 0:
-#             gs.mist = 1
-#         else:
-#             gs.mist = 0
-#         gs.add = self.nad
-#         gs.coord = self.ncords
-#         if self.bean == 0:
-#             self.print(self.text)
-#             self.bean = 1
-#         else:  
-#             self.print(self.name)
-  
 
 
 #################

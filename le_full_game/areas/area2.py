@@ -1,4 +1,4 @@
-from .space import regions, Space, Field, Fence, Transition, River, Forest, Cell, Chasm, Wall, FarmerHouse
+from .space import regions, Space, Field, Fence, Transition, River, Forest, Cell, Chasm, Wall
 from .item import Item
 
 class Gate(Space):
