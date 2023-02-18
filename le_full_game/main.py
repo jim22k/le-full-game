@@ -90,32 +90,9 @@ def left():
     gs.move('w')
     print_map(gs)
 
-def inventory():
-    text = ['You currently have:']
-    if gs.player_fire == 1:
-        text.append('Torch 🔥')
-    if gs.player_chop == 1:
-        text.append('Axe 🪓')
-    if gs.has_wood == 1:
-        text.append('Wood bundle 🪵')
-    if gs.sword == 1:
-        text.append('Sword 🔪')
-    if gs.magic == 1:
-        text.append('Magic sword 🗡')
-    if gs.amulet == 1:
-        text.append('Amulet 🧿')
-    if gs.fairy == 1:
-        text.append('Fairy 🧚')
-    if gs.pix == 1:
-        text.append('Pickaxe ⛏')
-    if len(text) == 1:
-        write_output("You have nothing in your inventory.")
-    else:
-        write_output("\n".join(text))
-
 def credits():
     write_output('''*deep inahle
-    ya the whole game was made by me lol
+    ya the whole game was made by me (Nathan Kitchen) lol
     so storyboard, creative design, artwork, all that jazz is me
     shoutout to my dad for helping with a project a while ago that I yoinked a bunch of code from
     also shoutout to Zork, Zelda, and Rakuen as inspiration
@@ -126,7 +103,13 @@ def restart():
 
     gs = GameState()
     outputs.innerHTML = ""
+    # Disable restart button
     js.document.getElementById('restart-button').setAttribute('disabled', True)
+    # Enable movement buttons
+    js.document.getElementById('up-button').removeAttribute('disabled')
+    js.document.getElementById('down-button').removeAttribute('disabled')
+    js.document.getElementById('right-button').removeAttribute('disabled')
+    js.document.getElementById('left-button').removeAttribute('disabled')
     
     # Initial text for player
     write_output("""Now let us begin:

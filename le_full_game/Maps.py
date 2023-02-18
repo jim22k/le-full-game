@@ -174,9 +174,36 @@ offset["vd"] = 7
 # add a thingy liek hollow knight where you have to find the map percances
 
 
+def inventory(gs):
+    text = []
+    if gs.player_fire == 1:
+        text.append('Torch 🕯️')
+    if gs.player_chop == 1:
+        text.append('Axe 🪓')
+    if gs.has_wood == 1:
+        text.append('Wood bundle 🪵')
+    if gs.pix == 1:
+        text.append('Pickaxe ⛏')
+
+    if gs.magic == 1:
+        text.append('Magic sword 🗡')
+    else:
+        if gs.sword == 1:
+            text.append('Sword 🔪')
+        if gs.fairy == 1:
+            text.append('Fairy 🧚')
+    if gs.amulet == 1:
+        text.append('Amulet 🧿')
+
+    if len(text) == 0:
+        return "You have nothing in your inventory."
+    else:
+        return f"Your inventory: {' '.join(text)}"
+
+
 def print_map(gs):
     map_elem = Element("map")
-    drawn = []
+    drawn = [inventory(gs), ""]
 
     #sets your coord to 2
     over = gs.coord[0] + 7

@@ -4,14 +4,12 @@ class Troll(Space):
   '''im the grumpy old troll who lives under the bridge'''
   def walked_in(self, gs):
     if gs.troll_life == 1:
-      if gs.sword != 1:
-        self.print('the troll reaches out, you try to dodge, but it catches and eat you.')
+      if gs.sword != 1 and gs.magic != 1:
+        self.print('the troll reaches out, you try to dodge, but it catches and eats you.')
         gs.ggs = 1
-        return
-      elif gs.sword == 1:
+      else:
         self.print('the troll tries to run away, but you chop its head off before it can leave the cave.')
         gs.troll_life = 0
-        return
     else:
       self.print('the trolls dead body lays on the ground of the cave')
 

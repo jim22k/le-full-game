@@ -21,6 +21,22 @@ class Space:
 ###################################
 # Common Spaces used in the games
 ###################################
+class Boulder(Space):
+    def walked_in(self, gs):
+        rnd = random.randint(1,5)
+        if rnd == 1:
+            adj = 'a large'
+        elif rnd == 2:
+            adj = 'a huge'
+        elif rnd == 3:
+            adj = 'a massive'
+        elif rnd == 4:
+            adj = 'an enormous'
+        else:
+            adj = 'a gigantic'
+        self.print(f'{adj} boulder blocks your path')
+        gs.coord = gs.past_coords
+
 class CaveWall(Space):
     def __init__(self, bean):
         super().__init__()
@@ -112,7 +128,7 @@ class Forest(Space):
         if bored == 1:
             self.print('The forest continues' + pathadd)
         elif bored == 2:
-            self.print('Birds chrip all around' + pathadd)
+            self.print('Birds chirp all around' + pathadd)
         elif bored == 3:
             self.print('The forest buzzes with life' + pathadd)
         elif bored == 4:

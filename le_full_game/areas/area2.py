@@ -1,4 +1,4 @@
-from .space import regions, Space, Field, Fence, Transition, River, Forest, Cell, Chasm, Wall
+from .space import regions, Space, Field, Fence, Transition, River, Forest, Cell, Chasm, Wall, Boulder
 from .item import Item
 
 class Gate(Space):
@@ -67,8 +67,8 @@ m[-1, -4] = Cell('Plains path  (n/s)','the path leads up to the gates of the cas
 m[-1, -3] = Cell('Forest path  (n/s)','The path opens out of the forest and into plains surrounding a large castle',0)
 m[-1, -2] = Cell('Forest path  (n/s)','the path leads on south',0)
 m[-1, -1] = Cell('Forest path  (s/w)','the path turns back to the south, in the distance a large building dominates the landscape',0)
-m[-1, 0] = Forest('path to west/south')
-m[-1, 1] = Forest('path to north/west')
+m[-1, 0] = Boulder()
+m[-1, 1] = Boulder()
 m[-1, 2] = Cell('Forest path  (e/w)','the path is much more defined here',0)
 m[-1, 3] = Forest('path to south')
 m[-1, 4] = Forest('')
@@ -91,7 +91,7 @@ m[0, 0] = Item('Fairy rock','''in a small clearing in the trees, a large rock si
 #    '..'|'..'                         #
 ########################################
              ''',0,0,0,0,1,0,0,0,0,0)
-m[0, 1] = Cell('Forest','The path ends and the trees grow thicker, and more at random',0)
+m[0, 1] = Boulder()
 m[0, 2] = Cell('Forest path  (n/w)','The path splits off to the east and west',0)
 m[0, 3] = Cell('Forest path  (n/s)','tree roots poke up through the packed dirt',0)
 m[0, 4] = Cell('Forest path  (n/s)','The path leads on to the south',0)

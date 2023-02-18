@@ -1,55 +1,55 @@
 from .space import regions, Space, Cell, Transition, Slope, Fence
 
 class SlopeBack(Space):
-  def walked_in(self, gs):
-    self.print('you slide down the cliff')
-    gs.coord = (3,-5)
-    gs.add = 'vd'
+    def walked_in(self, gs):
+        self.print('you slide down the cliff')
+        gs.coord = (3,-5)
+        gs.add = 'vd'
 
 class SlopeRight(Space):
-  def walked_in(self, gs):
-    self.print('you slide down the cliff')
-    gs.coord = (5,0)
-    gs.add = 'vd'
+    def walked_in(self, gs):
+        self.print('you slide down the cliff')
+        gs.coord = (5,0)
+        gs.add = 'vd'
 
 class SlopeLeft(Space):
-  def walked_in(self, gs):
-    self.print('you slide down the cliff, down to the deepest part of the valley')
-    gs.coord = (0,0)
-    gs.add = 'vd'
+    def walked_in(self, gs):
+        self.print('you slide down the cliff, down to the deepest part of the valley')
+        gs.coord = (0,0)
+        gs.add = 'vd'
 
 class VolcBridge(Space):
-  def __init__(self, bean):
-    super().__init__()
-    self.bean = bean
+    def __init__(self, bean):
+        super().__init__()
+        self.bean = bean
 
-  def walked_in(self, gs):
-    if gs.button == 0:
-      if self.bean == 0:
-        self.print('a bridge hangs down, making it impossible to continue up the path')
-        self.bean = 1
-      else:
-        self.print('the bridge is out')
-      gs.coord = gs.past_coords
-      return
-    elif gs.button == 1:
-      self.print('you walk across the bridge')
-      return
+    def walked_in(self, gs):
+        if gs.button == 0:
+            if self.bean == 0:
+                self.print('a bridge hangs down, making it impossible to continue up the path')
+                self.bean = 1
+            else:
+                self.print('the bridge is out')
+            gs.coord = gs.past_coords
+            return
+        elif gs.button == 1:
+            self.print('you walk across the bridge')
+            return
 
 class VolcButton(Space):
-  def __init__(self, bean):
-    super().__init__()
-    self.bean = bean
+    def __init__(self, bean):
+        super().__init__()
+        self.bean = bean
 
-  def walked_in(self, gs):
-    if self.bean == 0:
-      self.print('''you walk over to a pedestal with a large button on it
-      next to the button reads "Bridge closed for safety" 
-      you press the button. The bridge to the north lifts up''')
-      self.bean = 1
-      gs.button = 1
-    else:
-      self.print('volcano bridge button')
+    def walked_in(self, gs):
+        if self.bean == 0:
+            self.print('''you walk over to a pedestal with a large button on it
+            next to the button reads "Bridge closed for safety" 
+            you press the button. The bridge to the north lifts up''')
+            self.bean = 1
+            gs.button = 1
+        else:
+            self.print('volcano bridge button')
 
 class Dragon(Space):
     def walked_in(self, gs):
@@ -89,18 +89,19 @@ class Dragon(Space):
             self.print(
                 'the dragon breaths fire all over you, but the amulet keeps you safe'
             )
-        if gs.magic != 1:
-            self.print('''
-      you charge the dragon, swinging your sword
-      it bounces off the dragon, breaking in half
+            if gs.magic != 1:
+                self.print('''
+you charge the dragon, swinging your sword
+it bounces off the dragon, breaking in half
 
-      the dragon swipes its claws at you, killing you
-      ''')
-        else:
-            self.print(
-                '''you charge the dragon and stab it in the heart with your sword, killing it
-      good job u won lol
-      you can type "credits" to see the credits if you want''')
+the dragon swipes its claws at you, killing you
+          ''')
+            else:
+                self.print('''
+you charge the dragon and stab it in the heart with your sword, killing it
+
+*** good job u won lol ***
+''')
         gs.ggs = 1
 
 
@@ -123,8 +124,9 @@ vd[3, -2] = Cell('Volcano ravine','you are at the entrance to a tunnel underneat
 vd[2, -2] = Cell('Volcano ravine','you are underneath the path to the top of the mountain, the bridge hands above you',0)
 vd[1, -2] = Cell('Volcano ravine','the path connects to another path',0)
 
-vd[1, -4] = Transition('v',(1,-4),'Volcano path','A sigh in the ground reads "now that you have climbed out, you might as well head back home, the view isnt really worth it" you climb up to the top of the ravine, you can now continue climbing to the top of the mountain',0)
-
+vd[1, -4] = Transition('v',(1,-4),'Volcano path','''A sign in the ground reads
+"Now that you have climbed out, you might as well head back home, the view isn't really worth it".
+You climb up to the top of the ravine, you can now continue climbing to the top of the mountain''',0)
 vd[3, -5] = Cell('Volcano ravine','you are at the bottom of the ravine, a path leads up to the north',0)
 vd[3, -4] = Cell('Volcano ravine','the path goes under the ridge up above',0)
 vd[3, -3] = Cell('Volcano ravine','the path connects up with another path that leads east up ahead',0)
