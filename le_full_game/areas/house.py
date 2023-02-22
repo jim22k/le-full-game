@@ -62,7 +62,9 @@ h[-2, -1] = Wall()
 h[-1, 2] = Wall()
 h[-1, 1] = Stairs('attic',(0,2),'stairs','you walk up the stairs into the attic')
 h[-1, 0] = Room(0,0,0,0,'A large staircase to the north leads upwards','staircase',0)
-h[-1, -1] = Item('Workshop','''You are in a workshop, a large heavyset table sits in the center of the room. On the table is a note saying "Cannot find my axe, probably left it in the forest to the south/east." A torch hangs on the wall, you pick it up.
+h[-1, -1] = Item('Workshop','''You are in a workshop, a large heavyset table sits in the center of the room.
+On the table is a note saying "Cannot find my axe, probably left it in the forest to the south/east."
+A torch hangs on the wall, you pick it up.
 ###############################
 #  (\                         #
 #  .'.   You got the torch    #

@@ -19,11 +19,12 @@ class Statue(Space):
                 'a tall statue of a knight stands on a pedestal, parts of the stone are cracked, and moss grows over the surface'
             )
             self.bean = 1
-        if gs.fairy == 1:
+        if gs.fairy == 1 and gs.sword == 1:
             if self.got == 0:
                 self.print(' ')
                 self.print(
-                    '''you lets the fairy fly out of your hands, it swirles around the top of the statue. a shimmer of light appears in front of the statue, with a glowing sword appearing , you pick it up
+                    '''you let the fairy fly out of your hands, it swirles around the top of the statue.
+a shimmer of light appears in front of the statue, and your sword begins glowing
 ###############################################
 #       /| ________________                   #
 # O|===|* >________________>                  #
